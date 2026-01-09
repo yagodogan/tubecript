@@ -6,9 +6,11 @@ import { ZodError } from 'zod';
 class UrlController {
     static async getTranscript(c: Context){
         try{
-            const requestBody = await c.req.json();
-            UrlValidation.parse(requestBody);
-            return c.json(await UrlService.getContent(requestBody));
+            const queryParams = c.req.query();
+            const validatedData = UrlValidation.parse(queryParams);
+            const result = await UrlService.getContent(validatedData);
+            console.log(result)
+            return c.json(result);
         }catch(error){
             if (error instanceof ZodError) {
                 return c.json({message: "Validation failed", errors: error.name})

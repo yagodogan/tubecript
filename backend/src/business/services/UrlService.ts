@@ -5,7 +5,7 @@ class UrlService {
 
     static async getContent(url: UrlValidation){
         const videoId = UrlBusinessRules.getVideoId(url);
-
+        return videoId;
     }
 
 }
