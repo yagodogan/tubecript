@@ -2,16 +2,18 @@ import yt_dlp
 import os
 import uuid
 
-audio_folder = "../data/audio/"
+DATA_DIR = "./transcription/premium/pro_transcription/data"
+YOUTUBE = "https://www.youtube.com/watch?v="
 
-def convert_url(youtube_url, output_folder=audio_folder):
+def convert_url(videoId, output_folder=DATA_DIR):
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    audio_name = uuid.uuid4()
+    yt_link = YOUTUBE + videoId
+    audioId = uuid.uuid4()
 
-    save_path = os.path.join(output_folder, f'{audio_name}.%(ext)s')
+    save_path = os.path.join(output_folder, f'{audioId}.%(ext)s')
 
 
     ydl_opts = {
@@ -27,7 +29,9 @@ def convert_url(youtube_url, output_folder=audio_folder):
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([youtube_url])
+            ydl.download([yt_link])
+            return audioId
     except Exception as e:
-        print(f"error: audio file can not download: {e}")
-
+        return f"error: audio file can not download: {e}"
+    
+convert_url("49Kh1mS4Fhs")
