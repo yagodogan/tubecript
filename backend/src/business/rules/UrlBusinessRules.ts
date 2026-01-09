@@ -1,9 +1,9 @@
 import ValueError from "../../exeption/BusinessExeption.js";
-import Url from "../../models/Url.js";
+import type { UrlValidation } from "../../validations/urlValidation.js";
 
 class UrlBusinessRules{
 
-    static getVideoId(url:Url): string {
+    static getVideoId(url: UrlValidation): string {
         
         const videoId = new URL(url.url).searchParams.get("v");
 
