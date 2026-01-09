@@ -1,4 +1,4 @@
-import ValueError from "../../exeption/BusinessExeption.js";
+import ValueError from "../../exception/BusinessExeption.js";
 import type { UrlValidation } from "../../validations/urlValidation.js";
 
 class UrlBusinessRules{
