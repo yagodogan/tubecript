@@ -9,7 +9,6 @@ class UrlController {
             const queryParams = c.req.query();
             const validatedData = UrlValidation.parse(queryParams);
             const result = await UrlService.getContent(validatedData);
-            console.log(result)
             return c.json(result);
         }catch(error){
             if (error instanceof ZodError) {
