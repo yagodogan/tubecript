@@ -7,4 +7,4 @@ app.include_router(router, prefix="/api")
 
 @app.get("/")
 def home():
-    return {"message": "Sistem çalışıyor"}
+    return {"message": "server working"}
