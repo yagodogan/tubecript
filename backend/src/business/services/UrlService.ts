@@ -10,8 +10,12 @@ class UrlService {
 
     static async getContent(url: UrlValidation){
         const videoId = UrlBusinessRules.getVideoId(url);
-        const response = await axios.post(TRANSCRIPTION_API, {url: videoId})
-        return response.data;
+        try{
+            const response = await axios.post(TRANSCRIPTION_API, {videoId: videoId})
+            return response.data;
+        }catch(error){
+            return "An error occurred while sending a request to the Transcription API."
+        }
     }
 }
 

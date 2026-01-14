@@ -1,0 +1,23 @@
+services:
+  transcription_api:
+    build: ./transcription_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./transcription_api/.env
+    networks:
+      - transcript_network
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/src/.env
+    networks:
+      - transcript_network
+
+networks:
+  transcript_network:
+    driver: bridge
+    name: transcript_network
