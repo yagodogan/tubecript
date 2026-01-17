@@ -6,7 +6,7 @@ class Transcript:
     def getTranscript(videoId):
         try:
             ytApi = YouTubeTranscriptApi()
-            fetchedTranscript = ytApi.fetch(videoId, languages=["tr"])
+            fetchedTranscript = ytApi.fetch(videoId, languages=["tr", "en"])
             return fetchedTranscript
         except Exception:
             return GenericResponse(
