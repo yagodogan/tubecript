@@ -1,0 +1,48 @@
+body, html, #root {
+    height: 100%;
+    margin: 0;
+}
+
+.center-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.url-box {
+    height: 4rem;
+}
+
+.url-box:hover {
+    border-color: white;
+    box-shadow: none;
+}
+
+.p-inputtext.url-box:focus {
+    border-color: #ccc ;
+    box-shadow: none ;    
+    outline: none;      
+}
+
+.chat-box {
+    width: 40%;
+}
+
+.enter-button{
+    height: 4rem;
+    width: 4rem;
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.enter-button:focus{
+    border-color: #ccc;
+}
+
+.transcription-scroll-panel {
+    width: 100%;
+    height: 200px;
+}
+
