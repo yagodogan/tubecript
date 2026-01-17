@@ -6,6 +6,6 @@ const app = new Hono()
     .use('*', corsConfig) 
     .route('/', urlRoute);
 
-app.get('/', (c) => c.text('Bağlantı başarılı!'))
+app.get('/', (c) => c.text('backend connection got successfully!'))
 
 export default app;
