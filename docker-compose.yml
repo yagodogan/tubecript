@@ -17,6 +17,18 @@ services:
     networks:
       - transcript_network
 
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend:/app          
+      - /app/node_modules
+    networks:
+      - transcript_network
+
 networks:
   transcript_network:
     driver: bridge
