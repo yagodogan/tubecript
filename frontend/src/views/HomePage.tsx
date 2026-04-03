@@ -6,6 +6,7 @@ import LogoBar from "../components/logo-bar/LogoBar"
 import './HomePage.css'
 import TranscriptionService from '../services/transcriptionService';
 import { ScrollPanel } from 'primereact/scrollpanel';
+import { generateTranscriptPDF } from '../utils/pdfGenerator';
 
 function HomePage(){
 
@@ -30,7 +31,7 @@ const getTranscription = async () => {
     setLoading(true)
     toast.current?.show({
         severity: 'info',
-        detail: "transcriptiniz hazirlaniyor"
+        detail: "Transcripy is being prepared."
     })
 
 
@@ -40,7 +41,7 @@ const getTranscription = async () => {
         toast.current?.clear();
         toast.current?.show({
             severity:"success",
-            detail:"Transcript islemi basarili."
+            detail:"Transcript process successful."
         })
         setTranscription(response)
         setTitle(title)
@@ -55,6 +56,27 @@ const getText = () =>{
     toast.current?.show({ severity: 'success', summary: 'Copied', detail: 'Transcript copied!', life: 2000 });
 
 }
+
+const handleDownloadPDF = async () => {
+        try {
+            await generateTranscriptPDF(title, transcription);
+            toast.current?.show({
+                severity: 'success',
+                summary: 'PDF',
+                detail: 'PDF downloaded successfully.',
+                life: 2500,
+            });
+        } catch (error) {
+            console.error(error);
+            toast.current?.show({
+                severity: 'error',
+                summary: 'Hata',
+                detail: 'An error occured while generating the pdf.',
+                life: 3000,
+            });
+        }
+    };
+
 return (
     <div>
         <Toast ref={toast} position="top-right" />
@@ -89,14 +111,20 @@ return (
             </div>
         </ScrollPanel>
         
-        <div style={{ textAlign: 'right'}}>
-            <Button 
-                label="Copy" 
-                icon="pi pi-clone" 
-                severity="danger"
-                onClick={getText}
-            />
-        </div>
+        <div style={{ textAlign: 'right', display: 'flex', justifyContent: 'flex-end', gap: '0.2rem' , marginTop: "0.2rem"}}>
+                <Button 
+                    label="PDF" 
+                    icon="pi pi-file-pdf" 
+                    severity="warning"
+                    onClick={handleDownloadPDF}
+                />
+                <Button 
+                    label="Copy" 
+                    icon="pi pi-clone" 
+                    severity="danger"
+                    onClick={getText}
+                />
+            </div>
     </div>
 )}
             </div>
