@@ -8,7 +8,7 @@ const Navbar = () => {
             alignItems: 'center',     
         }}>
             <img src={logo} style={{ width: '10rem' }} alt="Logo" />
-            <h1>TranscripTube</h1>
+            <h1>transcripTube</h1>
         </div>
     );
 };

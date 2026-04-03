@@ -17,6 +17,20 @@ class UrlController {
             return c.json({message: "Failed get transcription."})
         }
     }
+
+    static async getTitle(c: Context){
+        try{
+            const queryParam = c.req.query();
+            const validatedData = UrlValidation.parse(queryParam);
+            const result = await UrlService.getTitle(validatedData);
+            return c.json(result);
+        }catch(error){
+            if (error instanceof ZodError) {
+                return c.json({message: "Validation failed", errors: error.name})
+            }
+            return c.json({message: "Failed get title."})
+        }
+    }
 }
 
 export default UrlController;
