@@ -77,10 +77,6 @@ const handleDownloadPDF = async () => {
         }
     };
 
-    const items = [
-        { label: title, icon: 'pi pi-align-left' },
-    ];
-
 return (
     <div>
         <Toast ref={toast} position="top-right" />
