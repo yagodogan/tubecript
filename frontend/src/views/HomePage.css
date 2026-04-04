@@ -68,3 +68,9 @@ body, html, #root {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+
+.content-header{
+    border-bottom: 2px solid white;
+    font-weight: 800;
+    font-size: larger;
+}

@@ -31,7 +31,7 @@ const getTranscription = async () => {
     setLoading(true)
     toast.current?.show({
         severity: 'info',
-        detail: "Transcripy is being prepared."
+        detail: "Transcript is being prepared."
     })
 
 
@@ -77,6 +77,10 @@ const handleDownloadPDF = async () => {
         }
     };
 
+    const items = [
+        { label: title, icon: 'pi pi-align-left' },
+    ];
+
 return (
     <div>
         <Toast ref={toast} position="top-right" />
@@ -101,9 +105,8 @@ return (
     <div className="fade-in-up">
         <ScrollPanel className='transcription-container' style={{ width: '100%', height: '20rem', padding: '0px'}}>
             <div className="transcription-content">
-                <div className="content-header" style={{padding: "1rem"}}>
-                    <i className="pi pi-align-left"></i>
-                    <span> {title}</span>
+                <div className="content-header" style={{padding: "1rem"}}>    
+                    <span>{title}</span>
                 </div>
                 <p className="transcription-text" style={{paddingLeft: "1rem"}}>
                     {transcription.join(' ')}
