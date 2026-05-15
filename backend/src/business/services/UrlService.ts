@@ -22,9 +22,7 @@ class UrlService {
     static async getTitle(url: UrlValidation){
         const videoId = UrlBusinessRules.getVideoId(url);
         try{
-            console.log(TITLE_API)
             const response = await axios.post(TITLE_API, {videoId: videoId})
-            console.log(response)
             return response.data;
         }catch{
             return "An error occurred while sending a request to the title API."
