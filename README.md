@@ -22,7 +22,7 @@ Follow these steps to get the project up and running locally:
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/yagodogan/tubecript.git
+git clone git@github.com:yagodogan/tubecript.git
 cd tubecript
 ```
 
