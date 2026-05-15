@@ -4,6 +4,8 @@
 
 Tubecript is a practical and fast tool that allows users to obtain a video transcript in seconds simply by entering a YouTube video link. By eliminating the time lost during manual transcription, it converts video content into a readable, searchable, and analyzable text format. Additionally, you can easily export the converted text into a PDF file.
 
+![Logo](images/tubecript.png) 
+
 ## Features 
 * **Instant Transcription:** Get full YouTube transcripts in seconds using just the video URL.
 * **PDF Export:** Seamlessly convert and download your transcripts as PDF documents.
