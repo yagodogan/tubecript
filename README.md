@@ -36,7 +36,7 @@ cp backend/src/.env.example backend/src/.env
 cp frontend/.env.example frontend/.env
 cp transcription_api/.env.example transcription_api/.env
 ```
-Note: If you will use the ai summerize dont forget to add a gemini api key to .env file.
+Note: If you will use the ai summerize dont forget to add a gemini api key to .env file in backend folder.
 ```bash
 GEMINI_API_KEY="FILL_HERE_WITH_YOUR_GEMINI_API_KEY"
 ```
