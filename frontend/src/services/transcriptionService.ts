@@ -20,6 +20,13 @@ class TranscriptionService{
         return response.data.data
     }
 
+    static async getSummerize(text: string): Promise<string>{
+        const response = await api.post('/summerize', {
+            text: text 
+});
+        return response.data;
+    }
+
 }
 
 export default TranscriptionService;

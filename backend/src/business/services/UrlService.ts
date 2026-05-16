@@ -2,6 +2,7 @@ import type { UrlValidation } from '../../validations/urlValidation.js';
 import UrlBusinessRules from '../rules/UrlBusinessRules.js';
 import axios from "axios";
 import dotenv from "dotenv";
+import { getSummerizedTranscript } from '../../summerizer/summerizer.js';
 
 dotenv.config();
 const TRANSCRIPTION_API = process.env.TRANSCRIPTION_API!;
@@ -26,6 +27,14 @@ class UrlService {
             return response.data;
         }catch{
             return "An error occurred while sending a request to the title API."
+        }
+    }
+
+    static async getSummerize(text: string){
+        try{
+            return getSummerizedTranscript(text);
+        }catch(error){
+            return error
         }
     }
 }

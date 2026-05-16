@@ -4,5 +4,6 @@ import UrlController from "../controllers/UrlController.js";
 const urlRoute = new Hono();
 urlRoute.get("/transcription", UrlController.getTranscript);
 urlRoute.get("/title", UrlController.getTitle);
+urlRoute.post("/summerize", UrlController.getSummerize);
 
 export{urlRoute};

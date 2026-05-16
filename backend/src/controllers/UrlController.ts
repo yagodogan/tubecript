@@ -31,6 +31,27 @@ class UrlController {
             return c.json({message: "Failed get title."})
         }
     }
+
+static async getSummerize(c: Context) {
+    try {
+        const body = await c.req.json();
+        const { text } = body;
+
+        if (!text) {
+            return c.json({ message: "text parameter is missing in body" }, 400);
+        }
+
+        const result = await UrlService.getSummerize(text); 
+        return c.json(result);
+
+    } catch (error) {
+        if (error instanceof ZodError) {
+            return c.json({ message: "Validation failed", errors: error.name });
+        }
+        return c.json({ message: "Failed to summarize text." }, 500); 
+    }
 }
+}
+
 
 export default UrlController;
